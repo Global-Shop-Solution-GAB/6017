@@ -1,0 +1,1229 @@
+Program.Sub.ScreenSU.Start
+Gui.frmPerF..Create
+Gui.frmPerF..Size(15240,10635)
+Gui.frmPerF..MinX(0)
+Gui.frmPerF..MinY(0)
+Gui.frmPerF..Position(0,0)
+Gui.frmPerF..BackColor(-2147483633)
+Gui.frmPerF..MousePointer(0)
+Gui.frmPerF..Caption("Labor Performance Dashboard")
+Gui.frmPerF..Event(UnLoad,frmPerf_UnLoad)
+Gui.frmPerF.picGSSLogo.Create(PictureBox)
+Gui.frmPerF.picGSSLogo.Size(4125,960)
+Gui.frmPerF.picGSSLogo.Position(5550,45)
+Gui.frmPerF.picGSSLogo.Event(DblClick,picGSSLogo_DblClick)
+Gui.frmPerF.picGSSLogo.ToolTip("Double-Click for additional functions")
+Gui.frmPerF.frameButtons.Create(Frame)
+Gui.frmPerF.frameButtons.Size(1965,600)
+Gui.frmPerF.frameButtons.Position(12975,330)
+Gui.frmPerF.frameButtons.Anchor(9)
+Gui.frmPerF.cmdRefresh.Create(Button)
+Gui.frmPerF.cmdRefresh.Size(840,375)
+Gui.frmPerF.cmdRefresh.Position(90,165)
+Gui.frmPerF.cmdRefresh.Caption("REFRESH")
+Gui.frmPerF.cmdRefresh.Event(Click,cmdRefresh_Click)
+Gui.frmPerF.cmdRefresh.Parent("frameButtons")
+Gui.frmPerF.cmdExport.Create(Button)
+Gui.frmPerF.cmdExport.Size(840,375)
+Gui.frmPerF.cmdExport.Position(1035,150)
+Gui.frmPerF.cmdExport.Caption("Export")
+Gui.frmPerF.cmdExport.Event(Click,cmdExport_Click)
+Gui.frmPerF.cmdExport.Parent("frameButtons")
+Gui.frmPerF.tabPerF.Create(Tab)
+Gui.frmPerF.tabPerF.Size(15060,8250)
+Gui.frmPerF.tabPerF.Position(30,1095)
+Gui.frmPerF.tabPerF.Event(Click,tabPerf_Click)
+Gui.frmPerF.tabPerF.Tabs(2)
+Gui.frmPerF.tabPerF.SetTab(0)
+Gui.frmPerF.tabPerF.Caption("Job Performance")
+Gui.frmPerF.tabPerF.SetTab(1)
+Gui.frmPerF.tabPerF.Caption("Indirect")
+Gui.frmPerF.GsGCPerF.Create(GsGridControl)
+Gui.frmPerF.GsGCPerF.Size(14940,7845)
+Gui.frmPerF.GsGCPerF.Position(0,0)
+Gui.frmPerF.GsGCPerF.Parent("tabPerF",0)
+Gui.frmPerF.GsGCPerF.Event(RowCellClick,GsGCPerf_RowCellClick)
+Gui.frmPerF.GsGCPerF.Event(CellValueChanged,GsGCPerf_CellValueChanged)
+Gui.frmPerF.GsGCPerF.Event(ColumnFilterChanged,GsGCPerf_ColumnFilterChanged)
+Gui.frmPerF.GsGCInd.Create(GsGridControl)
+Gui.frmPerF.GsGCInd.Size(14940,7845)
+Gui.frmPerF.GsGCInd.Position(0,0)
+Gui.frmPerF.GsGCInd.Parent("tabPerF",1)
+Gui.frmPerF.GsGCInd.Event(RowCellClick,GsGCInd_RowCellClick)
+Gui.frmPerF.GsGCInd.Event(CellValueChanged,GsGCInd_CellValueChanged)
+Gui.frmPerF.GsGCInd.Event(ColumnFilterChanged,GsGCInd_ColumnFilterChanged)
+Gui.frmPerF.frameTotals.Create(Frame)
+Gui.frmPerF.frameTotals.Size(8040,975)
+Gui.frmPerF.frameTotals.Position(7020,9375)
+Gui.frmPerF.frameTotals.Anchor(10)
+Gui.frmPerF.txtTotHrs.Create(TextBox,"",True,1215,300,0,4095,525,True,1,"Arial",8,-2147483643,1)
+Gui.frmPerF.txtTotHrs.Parent("frameTotals")
+Gui.frmPerF.txtTotHrs.NumericOnly(False)
+Gui.frmPerF.txtTotHrs.Locked(True)
+Gui.frmPerF.lblHrs.Create(Label,"Tot Hrs Worked",True,1290,255,0,4095,285,True,0,"Arial",8,-986896,0)
+Gui.frmPerF.lblHrs.Parent("frameTotals")
+Gui.frmPerF.txtEstHrs.Create(TextBox,"",True,1215,300,0,5400,525,True,1,"Arial",8,-2147483643,1)
+Gui.frmPerF.txtEstHrs.Parent("frameTotals")
+Gui.frmPerF.txtEstHrs.NumericOnly(False)
+Gui.frmPerF.txtEstHrs.Locked(True)
+Gui.frmPerF.lblEstHrs.Create(Label,"Tot Est Hrs",True,990,255,0,5400,285,True,0,"Arial",8,-986896,0)
+Gui.frmPerF.lblEstHrs.Parent("frameTotals")
+Gui.frmPerF.txtTotPerF.Create(TextBox,"",True,1215,300,0,6690,525,True,1,"Arial",8,-2147483643,1)
+Gui.frmPerF.txtTotPerF.Parent("frameTotals")
+Gui.frmPerF.txtTotPerF.NumericOnly(False)
+Gui.frmPerF.txtTotPerF.Locked(True)
+Gui.frmPerF.lblTotPerF.Create(Label,"Tot Performance",True,1350,255,0,6690,285,True,0,"Arial",8,-986896,0)
+Gui.frmPerF.lblTotPerF.Parent("frameTotals")
+Gui.frmPerF.txtIndTotPerF.Create(TextBox,"",False,1215,300,0,6690,525,True,1,"Arial",8,-2147483643,1)
+Gui.frmPerF.txtIndTotPerF.Parent("frameTotals")
+Gui.frmPerF.txtIndTotPerF.NumericOnly(False)
+Gui.frmPerF.txtIndTotPerF.Locked(True)
+Gui.frmPerF.txtIndTotEst.Create(TextBox,"",False,1215,300,0,5400,525,True,1,"Arial",8,-2147483643,1)
+Gui.frmPerF.txtIndTotEst.Parent("frameTotals")
+Gui.frmPerF.txtIndTotEst.NumericOnly(False)
+Gui.frmPerF.txtIndTotEst.Locked(True)
+Gui.frmPerF.txtIndTotHrs.Create(TextBox,"",False,1215,300,0,4095,525,True,1,"Arial",8,-2147483643,1)
+Gui.frmPerF.txtIndTotHrs.Parent("frameTotals")
+Gui.frmPerF.txtIndTotHrs.NumericOnly(False)
+Gui.frmPerF.txtIndTotHrs.Locked(True)
+Gui.frmPerF.txtTotPcs.Create(TextBox,"",True,1215,300,0,90,525,True,1,"Arial",8,-2147483643,1)
+Gui.frmPerF.txtTotPcs.Parent("frameTotals")
+Gui.frmPerF.txtTotPcs.Locked(True)
+Gui.frmPerF.txtPcsScrp.Create(TextBox,"",True,1215,300,0,1425,525,True,1,"Arial",8,-2147483643,1)
+Gui.frmPerF.txtPcsScrp.Parent("frameTotals")
+Gui.frmPerF.txtPcsScrp.Locked(True)
+Gui.frmPerF.txtPcsGood.Create(TextBox,"",True,1215,300,0,2760,525,True,1,"Arial",8,-2147483643,1)
+Gui.frmPerF.txtPcsGood.Parent("frameTotals")
+Gui.frmPerF.txtPcsGood.Locked(True)
+Gui.frmPerF.lblTotPcs.Create(Label,"Tot Pcs",True,1215,255,0,90,285,True,0,"Arial",8,-2147483633,0)
+Gui.frmPerF.lblTotPcs.Parent("frameTotals")
+Gui.frmPerF.lblPcsScrp.Create(Label,"Tot Pcs Scrap",True,1200,255,0,1425,285,True,0,"Arial",8,-2147483633,0)
+Gui.frmPerF.lblPcsScrp.Parent("frameTotals")
+Gui.frmPerF.lblPcsGood.Create(Label,"Tot Pcs Good",True,1200,255,0,2760,285,True,0,"Arial",8,-2147483633,0)
+Gui.frmPerF.lblPcsGood.Parent("frameTotals")
+Gui.frmPerF.txtPcsIndGood.Create(TextBox,"",False,1215,300,0,2760,525,True,0,"Arial",8,-2147483643,1)
+Gui.frmPerF.txtPcsIndGood.Parent("frameTotals")
+Gui.frmPerF.txtPcsIndGood.Locked(True)
+Gui.frmPerF.txtPcsIndScrp.Create(TextBox,"",False,1215,300,0,1425,525,True,0,"Arial",8,-2147483643,1)
+Gui.frmPerF.txtPcsIndScrp.Parent("frameTotals")
+Gui.frmPerF.txtPcsIndScrp.Locked(True)
+Gui.frmPerF.txtTotIndPcs.Create(TextBox,"",False,1215,300,0,90,525,True,0,"Arial",8,-2147483643,1)
+Gui.frmPerF.txtTotIndPcs.Parent("frameTotals")
+Gui.frmPerF.txtTotIndPcs.Locked(True)
+Gui.frmPerF.lblStatus.Create(Label,"Loading Performance....",False,3720,255,0,90,135,True,0,"Arial",8,-2147483633,0)
+Gui.frmPerF.pbStatus.Create(ProgressBar)
+Gui.frmPerF.pbStatus.Visible(False)
+Gui.frmPerF.pbStatus.Size(3735,255)
+Gui.frmPerF.pbStatus.Position(90,375)
+Gui.frmPerF.frameDate.Create(Frame)
+Gui.frmPerF.frameDate.Size(1560,1290)
+Gui.frmPerF.frameDate.Position(11280,0)
+Gui.frmPerF.frameDate.Anchor(9)
+Gui.frmPerF.lblBegDate.Create(Label,"Beg. Date",True,1320,195,0,75,180,True,0,"Arial",8,-986896,0)
+Gui.frmPerF.lblBegDate.Parent("frameDate")
+Gui.frmPerF.dtpBeg.Create(DatePicker)
+Gui.frmPerF.dtpBeg.Size(1425,285)
+Gui.frmPerF.dtpBeg.Position(75,375)
+Gui.frmPerF.dtpBeg.Parent("frameDate")
+Gui.frmPerF.lblEndDate.Create(Label,"End. Date",True,1320,195,0,75,735,True,0,"Arial",8,-986896,0)
+Gui.frmPerF.lblEndDate.Parent("frameDate")
+Gui.frmPerF.dtpEnd.Create(DatePicker)
+Gui.frmPerF.dtpEnd.Size(1425,285)
+Gui.frmPerF.dtpEnd.Position(75,930)
+Gui.frmPerF.dtpEnd.Parent("frameDate")
+Gui.frmPerF.lblDateNote.Create(Label,"Refresh to Load Data",True,1680,225,0,13125,990,True,0,"Arial",8,-2147483633,0)
+Gui.frmPerF.lblDateNote.Anchor(9)
+Gui.frmPerF.chkHist.Create(CheckBox)
+Gui.frmPerF.chkHist.Size(2370,360)
+Gui.frmPerF.chkHist.Position(12975,75)
+Gui.frmPerF.chkHist.Caption("Include WOs in History?")
+Gui.frmPerF.chkHist.Anchor(9)
+Gui.frmPerF.lblHist.Create(Label,"Including WOs in History",False,1935,255,0,5025,9975,True,1,"Arial",8,-2147483633,0)
+Gui.frmPerF.lblHist.Anchor(10)
+Gui.frmWeb..Create
+Gui.frmWeb..Caption("Global Shop Solutions - Web Sites")
+Gui.frmWeb..Size(3990,2025)
+Gui.frmWeb..MinX(0)
+Gui.frmWeb..MinY(0)
+Gui.frmWeb..Position(0,0)
+Gui.frmWeb..BackColor(-2147483633)
+Gui.frmWeb..MousePointer(0)
+Gui.frmWeb..MaxButton(False)
+Gui.frmWeb..Sizeable(False)
+Gui.frmWeb..Event(UnLoad,frmWeb_UnLoad)
+Gui.frmWeb..MinButton(False)
+Gui.frmWeb.cmdGSS.Create(Button)
+Gui.frmWeb.cmdGSS.Size(3615,375)
+Gui.frmWeb.cmdGSS.Position(120,45)
+Gui.frmWeb.cmdGSS.Caption("Global Shop Solutions")
+Gui.frmWeb.cmdGSS.Event(Click,cmdGSS_Click)
+Gui.frmWeb.cmdSerV.Create(Button)
+Gui.frmWeb.cmdSerV.Size(3615,375)
+Gui.frmWeb.cmdSerV.Position(120,450)
+Gui.frmWeb.cmdSerV.Caption("ServiceWeb")
+Gui.frmWeb.cmdSerV.Event(Click,cmdServ_Click)
+Gui.frmWeb.cmdUpd.Create(Button)
+Gui.frmWeb.cmdUpd.Size(3615,375)
+Gui.frmWeb.cmdUpd.Position(120,855)
+Gui.frmWeb.cmdUpd.Caption("GSS Updates")
+Gui.frmWeb.cmdUpd.Event(Click,cmdUpd_Click)
+Gui.frmWeb.cmdResetGsGC.Create(Button)
+Gui.frmWeb.cmdResetGsGC.Size(3615,375)
+Gui.frmWeb.cmdResetGsGC.Position(120,1260)
+Gui.frmWeb.cmdResetGsGC.Caption("Reset All Grids")
+Gui.frmWeb.cmdResetGsGC.Event(Click,cmdResetGsGC_Click)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+	V.Global.bLoadData.Declare
+	V.Global.bLongPart.Declare
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sIcon.Declare
+	V.Local.sGssLogo.Declare
+	'TJS June 2020
+	'Customer: Industrial Filter Mfg
+	'Business Case: Current Labor Performance Dashboard doesn't include job in history so it is producing misleading information
+	'Solution: Modify the Labor Performance Dashboard to include WOs in History.
+	
+	F.Intrinsic.String.Build("{0}\GSS2.ico",V.Caller.GasDir,V.Local.sIcon)
+	F.Intrinsic.String.Build("{0}\GAB_GSS_Logo_Green_Dash.png",V.Caller.GasDir,V.Local.sGssLogo)
+	Gui.frmPerF..Icon(V.Local.sIcon)
+	Gui.frmWeb..Icon(V.Local.sIcon)
+	Gui.frmPerF.picGSSLogo.Picture(V.Local.sGssLogo)
+
+	Gui.frmPerF.tabPerF.SetTab(0)
+
+	F.ODBC.Connection!con.OpenCompanyConnection(500)
+
+	F.Intrinsic.Control.CallSub(SetAnchors)
+	F.Intrinsic.Control.CallSub(CheckLongPart)
+
+	Gui.frmPerF..Show
+	F.Intrinsic.Control.CallSub(SetTabAnchors)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.SetAnchors.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	'0 - None
+	'1 - Top
+	'2 - Bottom
+	'4 - Left
+	'8 - Right
+
+	Gui.frmPerF.picGSSLogo.Anchor(1)
+	Gui.frmPerF.lblStatus.Anchor(5)
+	Gui.frmPerF.pbStatus.Anchor(5)
+	Gui.frmPerF.frameButtons.Anchor(9)
+	Gui.frmPerF.frameDate.Anchor(9)
+	Gui.frmPerF.lblDateNote.Anchor(9)
+	Gui.frmPerF.tabPerF.Anchor(15)
+	Gui.frmPerF.frameTotals.Anchor(10)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.SetAnchors.End
+
+Program.Sub.SetTabAnchors.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	'0 - None
+	'1 - Top
+	'2 - Bottom
+	'4 - Left
+	'8 - Right
+
+	Gui.frmPerF.GsGCPerF.Anchor(15)
+	Gui.frmPerF.GsGCInd.Anchor(15)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.SetTabAnchors.End
+
+Program.Sub.CheckLongPart.Start
+	F.Global.General.ReadOption("400861",0,False,"0000",V.Global.bLongPart)
+	F.Intrinsic.Control.If(V.Global.bLongPart,=,False)
+		F.Global.General.ReadOption("400861",0,False,"0004",V.Global.bLongPart)
+	F.Intrinsic.Control.EndIf
+Program.Sub.CheckLongPart.End
+
+Program.Sub.frmPerf_UnLoad.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Control.If(V.Global.bLoadData)
+		F.Intrinsic.Control.CallSub(Serialize)
+	F.Intrinsic.Control.EndIf
+	
+	F.ODBC.Connection!con.Close
+	F.Intrinsic.Control.End 
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.frmPerf_UnLoad.End
+
+Program.Sub.cmdRefresh_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Control.If(V.Global.bLoadData)
+		F.Intrinsic.Control.CallSub(Serialize)
+	F.Intrinsic.Control.EndIf
+	
+	Gui.frmPerF.lblStatus.Visible(True)
+	Gui.frmPerF.pbStatus.Visible(True)
+	Gui.frmPerF.pbStatus.Min(0)
+
+	F.Intrinsic.Control.BlockEvents
+	F.Intrinsic.Control.CallSub(loaddtpr)
+	F.Intrinsic.Control.CallSub(loaddtind)
+	F.Intrinsic.Control.CallSub(loadtotals,"Caller","First")
+	F.Intrinsic.Control.UnBlockEvents
+	F.Intrinsic.Control.CallSub(Deserialize)
+
+	Gui.frmPerF.lblStatus.Visible(False)
+	Gui.frmPerF.pbStatus.Visible(False)
+	Gui.frmPerF.pbStatus.Value(0)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdRefresh_Click.End
+
+Program.Sub.cmdExport_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sFileExport.Declare
+	V.Local.bExcel.Declare
+	V.Local.bFileLocked.Declare
+	V.Local.sMsg.Declare
+
+	F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+
+	F.Intrinsic.Control.SelectCase(V.Screen.frmPerf!tabPerF.Tab)
+		F.Intrinsic.Control.Case(0)
+			F.Intrinsic.Control.If(V.Local.bExcel)
+				F.Intrinsic.String.Build("{0}\GAB_6017_Perf_Export.xlsx",V.Caller.LocalGssTempDir,V.Local.sFileExport)
+				F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+				F.Intrinsic.Control.If(V.Local.bFileLocked)
+					F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+					F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+				F.Intrinsic.Control.Else
+					Gui.frmPerF.GsGCPerF.Export(V.Local.sFileExport,"xlsx")
+					F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.Build("{0}\GAB_6017_Perf_Export.csv",V.Caller.LocalGssTempDir,V.Local.sFileExport)
+				F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+				F.Intrinsic.Control.If(V.Local.bFileLocked)
+					F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+					F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+				F.Intrinsic.Control.Else
+					Gui.frmPerF.GsGCPerF.Export(V.Local.sFileExport,"csv")
+				F.Intrinsic.Control.EndIf
+				F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+			F.Intrinsic.Control.EndIf
+
+		F.Intrinsic.Control.Case(1)
+			F.Intrinsic.Control.If(V.Local.bExcel)
+				F.Intrinsic.String.Build("{0}\GAB_6017_Ind_Export.xlsx",V.Caller.LocalGssTempDir,V.Local.sFileExport)
+				F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+				F.Intrinsic.Control.If(V.Local.bFileLocked)
+					F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+					F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+				F.Intrinsic.Control.Else
+					Gui.frmPerF.GsGCInd.Export(V.Local.sFileExport,"xlsx")
+					F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.Build("{0}\GAB_6017_Ind_Export.csv",V.Caller.LocalGssTempDir,V.Local.sFileExport)
+				F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+				F.Intrinsic.Control.If(V.Local.bFileLocked)
+					F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+					F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+				F.Intrinsic.Control.Else
+					Gui.frmPerF.GsGCInd.Export(V.Local.sFileExport,"csv")
+				F.Intrinsic.Control.EndIf
+				F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+			F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndSelect
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdExport_Click.End
+
+Program.Sub.LoadDTPR.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sSQL.Declare
+	V.Local.dBegDate.Declare
+	V.Local.dEndDate.Declare
+	V.Local.bDictExists.Declare
+	V.Local.iCnt.Declare
+	V.Local.fRet.Declare
+	V.Local.sFilter.Declare
+	V.Local.sDay.Declare(string)
+	V.Local.sMonth.Declare(string)
+	V.Local.sYear.Declare(string)
+
+	F.Intrinsic.Control.If(V.DataTable.dtJD.Exists)
+		F.Data.DataTable.close("dtJD")
+		F.Data.DataTable.close("dtPR")
+	F.Intrinsic.Control.EndIf
+
+	F.Data.Dictionary.Exists("dIndirect",V.Local.bDictExists)
+	F.Intrinsic.Control.If(V.Local.bDictExists)
+		F.Data.Dictionary.Close("dIndirect")
+	F.Intrinsic.Control.EndIf
+	
+	V.Global.bLoadData.Set(True)
+	
+	Gui.frmPerF.lblHist.Visible(False)
+
+	F.Data.Dictionary.CreateFromSQL("dIndirect","con","SELECT DISTINCT CONCAT(JOB,SUFFIX) AS JS,CONVERT(IF('' = '',1,0),SQL_BIT) FROM IND_LBR_ACCTS;")
+	F.Data.Dictionary.SetDefaultReturn("dIndirect",False)
+
+	V.Local.dBegDate.Set(V.Screen.frmPerf!dtpBeg.Value)
+	V.Local.dEndDate.Set(V.Screen.frmPerf!dtpEnd.Value)
+	F.Intrinsic.Control.If(V.Local.dBegDate,>,V.Local.dEndDate)
+		F.Intrinsic.UI.Msgbox("Beg. Date cannot be after End. Date. Please change dates.","Try again")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.String.Build("Select Rtrim(Case When Left(A.Employee,1) = '*' Then (SUBSTRING(A.Employee,2,LENGTH(A.Employee)-1)) Else A.Employee End) As Employee,A.Dept_Emp,A.Shift_Shift As Shift,A.Charge_Date,Coalesce(C.Part,'') AS Part,'' As DISPLAY_PART,C.Part_Description,A.Job,A.Suffix,A.Seq,B.Description,RTRIM(A.Machine) as Machine,RTRIM(B.OPERATION) as OpCode,B.Units_Open - B.Units_Complete As Rem_Pcs,B.UNITS_OPEN as TOTAL_REQ,CONCAT(A.Job,A.Suffix) AS JS,A.Empl,A.Pieces_Compltd,A.Pieces_Scrap,A.Hours_Worked,A.Amt_Standard, A.Sequence_Key, year(Date_Sequence) as Years,CAST(month(Date_Sequence) AS CHAR(2)) as MonthS,CAST(day(Date_Sequence) AS CHAR(2)) as DayS From V_Job_Detail A Left Join V_Job_Operations B on A.Job = B.Job And A.Suffix = B.Suffix And A.Seq = B.Seq Left Join V_Job_Header C on B.Job = C.Job And B.Suffix = C.Suffix Where A.LMO = 'L' And A.Empl Not Like '#%' And A.Edited_WO_Dtl <> 'R' And A.Charge_Date Between '{0}' And '{1}';",V.Local.dBegDate.PervasiveDate,V.Local.dEndDate.PervasiveDate,V.Local.sSQL)
+	F.Data.DataTable.CreateFromSQL("dtJD","con",V.Local.sSQL,True)
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtJD.RowCount--,1)
+		F.Intrinsic.String.LPad(V.DataTable.dtJD(V.Local.iCnt).MonthS!FieldValTrim,"0",2,V.Local.sMonth)
+		F.Intrinsic.String.LPad(V.DataTable.dtJD(V.Local.iCnt).DayS!FieldValTrim,"0",2,V.Local.sDay)
+		F.Intrinsic.String.Right(V.DataTable.dtJD(V.Local.iCnt).YearS!FieldValString,2,V.Local.sYear)
+		F.Data.DataTable.SetValue("dtJD",V.Local.iCnt,"MonthS",V.Local.sMonth,"DayS",V.Local.sDay,"YearS",V.Local.sYear)		
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+	F.Data.DataTable.AddDisplayPartColumn("dtJD",0,"PART","DISPLAY_PART")
+
+'6017	
+	F.Intrinsic.Control.If(V.Screen.frmPerf!chkHist.Value,=,1)
+'		F.Intrinsic.String.Build("Select Rtrim(Case When Left(A.Employee,1) = '*' Then (SUBSTRING(A.Employee,2,LENGTH(A.Employee)-1)) Else A.Employee End) As Employee,A.Dept_Employee,A.Shift_Shift As Shift,A.Charge_Date,Coalesce(C.Part,'') AS Part,'' As DISPLAY_PART,C.Part_Description,A.Job,A.Suffix,A.Seq,B.Description,RTRIM(A.Machine) as Machine,RTRIM(B.OPERATION) as OpCode,B.Units_Open - B.Units_Complete As Rem_Pcs,B.UNITS_OPEN as TOTAL_REQ,CONCAT(A.Job,A.Suffix) AS JS,A.Employee,A.Pieces_Compltd,A.Pieces_Scrap,A.Hours_Worked,A.Amt_Standard, A.Sequence_Key, year(Date_Sequence) as Years,CAST(month(Date_Sequence) AS CHAR(2)) as MonthS,CAST(day(Date_Sequence) AS CHAR(2)) as DayS From V_JOB_HIST_DTL A Left Join V_JOB_HIST_OPS B on A.Job = B.Job And A.Suffix = B.Suffix And A.Seq = B.Seq Left Join V_JOB_HIST_MAST C on B.Job = C.Job And B.Suffix = C.Suffix Where A.LMO = 'L' And A.Employee Not Like '#%' And A.Edited_WO_Dtl <> 'R' And A.Charge_Date Between '{0}' And '{1}';",V.Local.dBegDate.PervasiveDate,V.Local.dEndDate.PervasiveDate,V.Local.sSQL)
+		
+		F.Intrinsic.String.Build("Select Rtrim(Case When Left(A.Employee_NAME,1) = '*' Then (SUBSTRING(A.Employee_NAME,2,LENGTH(A.Employee)-1)) Else A.Employee_NAME End) As Employee,A.Dept_Employee,A.Shift_Shift As Shift,A.Charge_Date,Coalesce(C.Part,'') AS Part,'' As DISPLAY_PART,C.Part_Description,A.Job,A.Suffix,A.Seq,B.Description,RTRIM(A.Machine) as Machine,RTRIM(B.OPERATION) as OpCode,B.Units_Open - B.Units_Complete As Rem_Pcs,B.UNITS_OPEN as TOTAL_REQ,CONCAT(A.Job,A.Suffix) AS JS,A.Employee as Empl,A.Pieces_Compltd,A.Pieces_Scrap,A.Hours_Worked,A.Amt_Standard, A.Sequence_Key, year(Date_Sequence) as Years,CAST(month(Date_Sequence) AS CHAR(2)) as MonthS,CAST(day(Date_Sequence) AS CHAR(2)) as DayS From V_JOB_HIST_DTL A Left Join V_JOB_HIST_OPS B on A.Job = B.Job And A.Suffix = B.Suffix And A.Seq = B.Seq Left Join V_JOB_HIST_MAST C on B.Job = C.Job And B.Suffix = C.Suffix Where A.LMO = 'L' And A.Employee Not Like '#%' And A.Edited_WO_Dtl <> 'R' And A.Charge_Date Between '{0}' And '{1}';",V.Local.dBegDate.PervasiveDate,V.Local.dEndDate.PervasiveDate,V.Local.sSQL)
+		F.Data.DataTable.CreateFromSQL("dtJDHist","con",V.Local.sSQL,True)
+		F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtJDHist.RowCount--,1)
+			F.Intrinsic.String.LPad(V.DataTable.dtJDHist(V.Local.iCnt).MonthS!FieldValTrim,"0",2,V.Local.sMonth)
+			F.Intrinsic.String.LPad(V.DataTable.dtJDHist(V.Local.iCnt).DayS!FieldValTrim,"0",2,V.Local.sDay)
+			F.Intrinsic.String.Right(V.DataTable.dtJDHist(V.Local.iCnt).YearS!FieldValString,2,V.Local.sYear)
+			F.Data.DataTable.SetValue("dtJDHist",V.Local.iCnt,"MonthS",V.Local.sMonth,"DayS",V.Local.sDay,"YearS",V.Local.sYear)		
+		F.Intrinsic.Control.Next(V.Local.iCnt)
+		F.Data.DataTable.AddDisplayPartColumn("dtJDHist",0,"PART","DISPLAY_PART")
+		F.Data.DataTable.Merge("dtJDHist","dtJD",True,2)
+		F.Data.DataTable.Close("dtJDHist")
+		
+		Gui.frmPerF.lblHist.Visible(True)
+	F.Intrinsic.Control.EndIf
+
+	F.Data.DataView.Create("dtJD","dvJD")
+	F.Data.DataView.ToDataTableDistinct("dtJD","dvJD","dtPR","Employee*!*Dept_Emp*!*Shift*!*Charge_Date*!*Part*!*Display_Part*!*Part_Description*!*Job*!*Suffix*!*Seq*!*Description*!*Machine*!*OpCode*!*TOTAL_REQ*!*Rem_Pcs*!*JS*!*Empl*!*Sequence_Key*!*YearS*!*MonthS*!*DayS",True)
+	
+	F.Data.DataTable.AddColumn("dtPR","PIECES_COMPLTD",Float,0)
+	F.Data.DataTable.AddColumn("dtPR","PIECES_SCRAP",Float,0)
+	F.Data.DataTable.AddColumn("dtPR","HOURS_WORKED",Float,0)
+	F.Data.DataTable.AddColumn("dtPR","AMT_STANDARD",Float,0)
+	F.Intrinsic.Control.If(V.DataTable.dtPR.RowCount,=,0)
+		Gui.frmPerF.pbStatus.Max(100)
+		Gui.frmPerF.pbStatus.Value(100)
+	F.Intrinsic.Control.Else
+		Gui.frmPerF.pbStatus.Max(V.DataTable.dtPR.RowCount)
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtPR.RowCount--,1)
+		Gui.frmPerF.pbStatus.Value(V.Local.iCnt)
+		F.Intrinsic.String.Build("JOB = '{0}' And SUFFIX = '{1}' And SEQ = '{2}' And EMPLOYEE = '{3}' And Charge_Date = '{4}' and Sequence_Key = '{5}'",V.DataTable.dtPR(V.Local.iCnt).JOB.FieldValStringPSQLFriendly,V.DataTable.dtPR(V.Local.iCnt).SUFFIX.FieldValStringPSQLFriendly,V.DataTable.dtPR(V.Local.iCnt).SEQ.FieldValStringPSQLFriendly,V.DataTable.dtPR(V.Local.iCnt).Employee.FieldValStringPSQLFriendly,V.DataTable.dtPR(V.Local.iCnt).Charge_Date.FieldValPervasiveDate,V.DataTable.dtPR(V.Local.iCnt).Sequence_Key.FieldValStringPSQLFriendly,V.Local.sFilter)
+		'Pieces_Compltd
+		F.Data.DataTable.Compute("dtJD","Sum(Pieces_Compltd)",V.Local.sFilter,V.Local.fRet)
+		F.Data.DataTable.SetValue("dtPR",V.Local.iCnt,"Pieces_Compltd",V.Local.fRet)
+		'Pieces_Scrap
+		F.Data.DataTable.Compute("dtJD","Sum(Pieces_Scrap)",V.Local.sFilter,V.Local.fRet)
+		F.Data.DataTable.SetValue("dtPR",V.Local.iCnt,"Pieces_Scrap",V.Local.fRet)
+		'Hours_Worked
+		F.Data.DataTable.Compute("dtJD","Sum(Hours_Worked)",V.Local.sFilter,V.Local.fRet)
+		F.Data.DataTable.SetValue("dtPR",V.Local.iCnt,"Hours_Worked",V.Local.fRet)
+		'Amt_Standard
+		F.Data.DataTable.Compute("dtJD","Sum(Amt_Standard)",V.Local.sFilter,V.Local.fRet)
+		F.Data.DataTable.SetValue("dtPR",V.Local.iCnt,"Amt_Standard",V.Local.fRet)
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+
+	'Perform
+	F.Data.DataTable.AddExpressionColumn("dtPR","Perform",Float,"IIF([Hours_Worked] = 0,0,([Amt_Standard] / [Hours_Worked])*100)")
+	F.Data.DataTable.AddExpressionColumn("dtPR","Pieces_Total",Float,"[PIECES_COMPLTD]+[PIECES_SCRAP]")
+	F.Data.DataTable.AddExpressionColumn("dtPR","Runtime",Float,"[Pieces_Total]/[Hours_Worked]")
+	F.Data.DataTable.AddExpressionColumn("dtPR","Pull_OpCode","String","MACHINE+OpCode")
+	F.Data.DataTable.AddColumn("dtPR","Capacity",Float)
+	
+	F.Data.Dictionary.CreateFromSQL("dictCap","con","Select RTRIM(MACHINE)+RTRIM(OPERATION),STANDARD_RUNTIME from V_OP_CODES")
+	F.Data.Dictionary.SetDefaultReturn("dictCap",0.00)
+	F.Data.DataTable.FillFromDictionary("dtPR","dictCap","Pull_OpCode","Capacity")
+	F.Data.Dictionary.Close("dictCap")
+
+	F.Data.DataTable.AddColumn("dtPR","IND_FLAG",Boolean,False)
+	F.Data.DataTable.FillFromDictionary("dtPR","dIndirect","JS","IND_FLAG")
+	F.Data.DataView.Create("dtPR","dvPR",22,"IND_FLAG <> True","")
+	'Add Notes columns
+	F.Data.DataTable.AddExpressionColumn("dtPR","Job_Suf_Seq","string","Job + Suffix + Seq + YearS + MonthS + DayS + Sequence_Key")
+	F.Data.DataTable.AddColumn("dtPR","Notes","string","")
+	F.Data.Dictionary.CreateFromSQL("NoteDict","con","SELECT Job + Suffix + Job_Seq + Date + Seq as Job_Suf_Seq, Text FROM JOB_DTL_NOTES")
+	F.Data.Dictionary.SetDefaultReturn("NoteDict","")
+	F.Data.DataTable.FillFromDictionary("dtPR","NoteDict","Job_Suf_Seq","Notes")
+	F.Data.Dictionary.Close("NoteDict")
+	F.Intrinsic.Control.CallSub(LoadGsGCPR)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadDTPR.End
+
+Program.Sub.LoadGsGCPR.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	Gui.frmPerF.GsGCPerF.AddGridviewFromDataview("gvPR","dtPR","dvPR")
+	Gui.frmPerF.GsGCPerF.MainView("gvPR")
+	Gui.frmPerF.GsGCPerF.SuspendLayout()
+	Gui.frmPerF.GsGCPerF.SetGridViewProperty("gvPR","MultiSelect",True)
+	Gui.frmPerF.GsGCPerF.SetGridViewProperty("gvPR","AllowSort",True)
+	Gui.frmPerF.GsGCPerF.SetGridViewProperty("gvPR","AllowFilter",True)
+	Gui.frmPerF.GsGCPerF.SetGridViewProperty("gvPR","Editable",False)
+	Gui.frmPerF.GsGCPerF.SetGridViewProperty("gvPR","ReadOnly",True)
+	Gui.frmPerF.GsGCPerF.SetGridViewProperty("gvPR","OptionsDetailShowDetailTabs",False)
+	Gui.frmPerF.GsGCPerF.SetGridViewProperty("gvPR","OptionsViewShowGroupPanel",True)
+	Gui.frmPerF.GsGCPerF.SetGridViewProperty("gvPR","EnableAppearanceOddRow",True)
+
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","EMPLOYEE","VisibleIndex","0")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","DEPT_EMP","VisibleIndex","1")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","SHIFT","VisibleIndex","2")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","CHARGE_DATE","VisibleIndex","3")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","DISPLAY_PART","VisibleIndex","4")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","PART_DESCRIPTION","VisibleIndex","5")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","JOB","VisibleIndex","6")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","SUFFIX","VisibleIndex","7")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","SEQ","VisibleIndex","8")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","DESCRIPTION","VisibleIndex","9")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","OPCODE","VisibleIndex","10")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","MACHINE","VisibleIndex","11")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","TOTAL_REQ","VisibleIndex","12")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","PIECES_COMPLTD","VisibleIndex","13")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","PIECES_SCRAP","VisibleIndex","14")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","PIECES_TOTAL","VisibleIndex","15")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","Runtime","VisibleIndex","16")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","Capacity","VisibleIndex","17")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","REM_PCS","VisibleIndex","18")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","HOURS_WORKED","VisibleIndex","19")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","AMT_STANDARD","VisibleIndex","20")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","PERFORM","VisibleIndex","21")
+
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","IND_FLAG","Visible",False)
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","JS","Visible",False)
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","EMPL","Visible",False)
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","PART","Visible",False)
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","Pull_OpCode","Visible",False)
+	
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","EMPLOYEE","Caption","Employee")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","DEPT_EMP","Caption","Dept.")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","SHIFT","Caption","Shift")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","CHARGE_DATE","Caption","Date")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","DISPLAY_PART","Caption","Part")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","PART_DESCRIPTION","Caption","Job Description")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","JOB","Caption","Job")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","SUFFIX","Caption","Suf")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","SEQ","Caption","Seq")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","DESCRIPTION","Caption","Seq Description")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","OPCODE","Caption","Op Code")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","MACHINE","Caption","WC")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","TOTAL_REQ","Caption","Tot Pcs Req")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","PIECES_COMPLTD","Caption","Good Pcs")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","PIECES_SCRAP","Caption","Scrap Pcs")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","PIECES_TOTAL","Caption","Tot Pcs")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","Runtime","Caption","Pcs/Hr")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","Capacity","Caption","Capacity")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","REM_PCS","Caption","Rem Pcs")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","HOURS_WORKED","Caption","Hrs Wrkd")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","AMT_STANDARD","Caption","Est Hrs")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","PERFORM","Caption","Perf")
+
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","EMPLOYEE","MinWidth","150")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","DEPT_EMP","MinWidth","40")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","SHIFT","MinWidth","40")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","CHARGE_DATE","MinWidth","70")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","MACHINE","MinWidth","35")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","TOTAL_REQ","MinWidth","35")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","DISPLAY_PART","MinWidth","105")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","PART_DESCRIPTION","MinWidth","180")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","OPCODE","MinWidth","50")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","JOB","MinWidth","50")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","SUFFIX","MinWidth","30")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","SEQ","MinWidth","45")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","DESCRIPTION","MinWidth","175")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","PIECES_COMPLTD","MinWidth","55")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","HOURS_WORKED","MinWidth","55")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","REM_PCS","MinWidth","55")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","PIECES_SCRAP","MinWidth","55")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","PIECES_TOTAL","MinWidth","55")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","Runtime","MinWidth","55")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","Capacity","MinWidth","55")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","PERFORM","MinWidth","55")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","AMT_STANDARD","MinWidth","55")
+
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","DEPT_EMP","CellHAlignment","Center")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","SHIFT","CellHAlignment","Center")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","CHARGE_DATE","CellHAlignment","Center")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","JOB","CellHAlignment","Center")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","SUFFIX","CellHAlignment","Center")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","SEQ","CellHAlignment","Center")
+
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","DEPT_EMP","HeaderHAlignment","Center")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","SHIFT","HeaderHAlignment","Center")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","CHARGE_DATE","HeaderHAlignment","Center")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","JOB","HeaderHAlignment","Center")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","SUFFIX","HeaderHAlignment","Center")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","SEQ","HeaderHAlignment","Center")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","MACHINE","HeaderHAlignment","Center")
+
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","AMT_STANDARD","DisplayCustomString","###,###,##0.00")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","HOURS_WORKED","DisplayCustomString","###,###,##0.00")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","PERFORM","DisplayCustomString","###,###,##0")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","PIECES_COMPLTD","DisplayCustomString","###,###,##0")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","PIECES_SCRAP","DisplayCustomString","###,###,##0")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","REM_PCS","DisplayCustomString","###,###,##0")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","TOTAL_REQ","DisplayCustomString","###,###,##0")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","PIECES_TOTAL","DisplayCustomString","###,###,##0.00")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","Runtime","DisplayCustomString","###,###,##0.00")
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","Capacity","DisplayCustomString","###,###,##0.00")
+	
+
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","CHARGE_DATE","DisplayCustomDatetime","d")
+	
+	F.Intrinsic.Control.If(V.Global.bLongPart)
+		Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","DISPLAY_PART","MinWidth","250")
+	F.Intrinsic.Control.EndIf
+
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","Job_Suf_Seq","Visible",False)
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","Sequence_Key","Visible",False)
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","YearS","Visible",False)
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","MonthS","Visible",False)
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","DayS","Visible",False)
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","Notes","MinWidth","200")
+	
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","Notes","AllowEdit",False)
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","Notes","ReadOnly",True)
+	
+	Gui.frmPerF.GsGCPerF.SetColumnProperty("gvPR","CHARGE_DATE","SortOrder","Ascending")
+	
+	Gui.frmPerF.GsGCPerF.ResumeLayout()
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadGsGCPR.End
+
+Program.Sub.GsGCPerf_RowCellClick.Start
+V.Local..BulkDeclareString(sTitle)
+F.Intrinsic.Control.If(V.Args.Column,=,"Notes")
+	F.Intrinsic.String.Build("{0}___Job: {1}-{2}-{3}",V.DataTable.dtPR(V.Args.RowIndex).Employee!FieldValString,V.DataTable.dtPR(V.Args.RowIndex).Job!FieldValString,V.DataTable.dtPR(V.Args.RowIndex).Suffix!FieldValString,V.DataTable.dtPR(V.Args.RowIndex).Seq!FieldValString,V.Local.sTitle)
+	F.Intrinsic.UI.Msgbox(V.DataTable.dtPR(V.Args.RowIndex).Notes!FieldValString,V.Local.sTitle)
+F.Intrinsic.Control.EndIf
+
+Program.Sub.GsGCPerf_RowCellClick.End
+
+Program.Sub.GsGCPerf_CellValueChanged.Start
+Program.Sub.GsGCPerf_CellValueChanged.End
+
+'Indirect GS
+Program.Sub.GsGCInd_RowCellClick.Start
+V.Local..BulkDeclareString(sTitle)
+F.Intrinsic.Control.If(V.Args.Column,=,"Notes")
+	F.Intrinsic.String.Build("{0}___Job: {1}-{2}-{3}",V.DataTable.dtInd(V.Args.RowIndex).Employee!FieldValString,V.DataTable.dtInd(V.Args.RowIndex).Job!FieldValString,V.DataTable.dtInd(V.Args.RowIndex).Suffix!FieldValString,V.DataTable.dtInd(V.Args.RowIndex).Seq!FieldValString,V.Local.sTitle)
+	F.Intrinsic.UI.Msgbox(V.DataTable.dtInd(V.Args.RowIndex).Notes!FieldValString,V.Local.sTitle)
+F.Intrinsic.Control.EndIf
+
+Program.Sub.GsGCInd_RowCellClick.End
+
+Program.Sub.GsGCPerf_ColumnFilterChanged.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.bFilter.Declare	
+	V.Local.sFilter.Declare
+	V.Local.sInvalid.Declare
+	V.Local.bRet.Declare
+	V.Local.iCnt.Declare
+	V.Local.iCounter.Declare(Long,0)
+	V.Local.sMsg.Declare
+
+	F.Intrinsic.String.Split("StartsWith*!*Between*!*Contains*!*EndsWith*!*IsNullOrEmpty*!*?*!*IsOutlookInterval","*!*",V.Local.sInvalid)
+	F.Intrinsic.String.IsNullOrWhiteSpace(V.Args.ActiveFilterExpression,V.Local.bFilter)
+	Function.Intrinsic.Control.If(V.Local.bFilter,=,True)
+		F.Intrinsic.Control.CallSub(loadtotals,"Caller","dtPR","Filter","IND_FLAG <> True")
+	Function.Intrinsic.Control.Else
+		F.Intrinsic.String.Replace(V.Args.ActiveFilterExpression,"[","",V.Local.sFilter)
+		F.Intrinsic.String.Replace(V.Local.sFilter,"]","",V.Local.sFilter)
+		F.Intrinsic.String.Build("{0} And IND_FLAG <> True",V.Local.sFilter,V.Local.sFilter)
+
+		F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sInvalid.UBound,1)
+			F.Intrinsic.String.IsInString(V.Local.sFilter,V.Local.sInvalid(V.Local.iCnt),False,V.Local.bRet)
+			F.Intrinsic.Control.If(V.Local.bRet,=,True)
+				F.Intrinsic.Math.Add(V.Local.iCounter,1,V.Local.iCounter)
+			F.Intrinsic.Control.endif
+		F.Intrinsic.Control.Next(V.Local.iCnt)
+
+		F.Intrinsic.Control.If(V.Local.iCounter,=,1)
+			Function.Intrinsic.String.Build("Grid will be filtered, but totals will not be recalculated, because one of the filters entered is an invalid filter for recalculating totals.{0}{0}Invalid Filters for recalculating totals:{0}- Is between{0}- Is not between{0}- Contains{0}- Does not contain{0}- Beings with{0}- Ends with{0}- Is blank{0}- Is not blank{0}- ?{0}- Calendar Checkboxes",V.Ambient.NewLine,V.Local.sMsg)
+			Function.Intrinsic.UI.Msgbox(V.Local.sMsg,"Filter Validation")
+		F.Intrinsic.Control.ElseIf(V.Local.iCounter,>,1)
+			Function.Intrinsic.String.Build("Grid will be filtered, but totals will not be recalculated, because more than one filter entered is an invalid filter for recalculating totals.{0}{0}Invalid Filters for recalculating totals:{0}- Is between{0}- Is not between{0}- Contains{0}- Does not contain{0}- Beings with{0}- Ends with{0}- Is blank{0}- Is not blank{0}- ?{0}- Calendar Checkboxes",V.Ambient.NewLine,V.Local.sMsg)
+			Function.Intrinsic.UI.Msgbox(V.Local.sMsg,"Filter Validation")
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.CallSub(loadtotals,"Caller","dtPR","Filter",V.Local.sFilter)
+		F.Intrinsic.Control.EndIf
+	Function.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.GsGCPerf_ColumnFilterChanged.End
+
+Program.Sub.LoadDTInd.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Control.If(V.DataTable.dtInd.Exists)
+		F.Data.DataTable.Close("dtInd")
+	F.Intrinsic.Control.EndIf
+
+	F.Data.DataView.Create("dtPR","dvInd",22,"IND_FLAG = True","")
+	F.Data.DataView.ToDataTable("dtPR","dvInd","dtInd",True)
+
+	F.Intrinsic.Control.CallSub(LoadGsGCInd)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadDTInd.End
+
+Program.Sub.LoadGsGCInd.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	Gui.frmPerF.GsGCInd.AddGridviewFromDatatable("gvInd","dtInd")
+	Gui.frmPerF.GsGCInd.MainView("gvInd")
+	Gui.frmPerF.GsGCInd.SuspendLayout()
+	Gui.frmPerF.GsGCInd.SetGridViewProperty("gvInd","MultiSelect",True)
+	Gui.frmPerF.GsGCInd.SetGridViewProperty("gvInd","AllowSort",True)
+	Gui.frmPerF.GsGCInd.SetGridViewProperty("gvInd","AllowFilter",True)
+	Gui.frmPerF.GsGCInd.SetGridViewProperty("gvInd","OptionsDetailShowDetailTabs",False)
+	Gui.frmPerF.GsGCInd.SetGridViewProperty("gvInd","OptionsViewShowGroupPanel",True)
+	Gui.frmPerF.GsGCInd.SetGridViewProperty("gvInd","EnableAppearanceOddRow",True)
+
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","EMPLOYEE","VisibleIndex","0")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","DEPT_EMP","VisibleIndex","1")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","SHIFT","VisibleIndex","2")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","CHARGE_DATE","VisibleIndex","3")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","DISPLAY_PART","VisibleIndex","4")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","PART_DESCRIPTION","VisibleIndex","5")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","JOB","VisibleIndex","6")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","SUFFIX","VisibleIndex","7")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","SEQ","VisibleIndex","8")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","DESCRIPTION","VisibleIndex","9")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","OPCODE","VisibleIndex","10")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","MACHINE","VisibleIndex","11")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","TOTAL_REQ","VisibleIndex","12")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","PIECES_COMPLTD","VisibleIndex","13")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","PIECES_SCRAP","VisibleIndex","14")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","PIECES_TOTAL","VisibleIndex","15")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","Runtime","VisibleIndex","16")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","Capacity","VisibleIndex","17")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","REM_PCS","VisibleIndex","18")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","HOURS_WORKED","VisibleIndex","19")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","AMT_STANDARD","VisibleIndex","20")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","PERFORM","VisibleIndex","21")
+
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","IND_FLAG","Visible",False)
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","JS","Visible",False)
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","EMPL","Visible",False)
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","PART","Visible",False)
+
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","EMPLOYEE","Caption","Employee")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","DEPT_EMP","caption","Dept.")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","SHIFT","caption","Shift")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","CHARGE_DATE","caption","Date")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","DISPLAY_PART","caption","Part")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","PART_DESCRIPTION","caption","Job Description")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","JOB","Caption","Job")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","SUFFIX","Caption","Suf")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","SEQ","Caption","Seq")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","DESCRIPTION","Caption","Seq Description")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","OPCODE","Caption","Op Code")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","MACHINE","Caption","WC")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","TOTAL_REQ","Caption","Tot Pcs Req")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","PIECES_COMPLTD","Caption","Good Pcs")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","PIECES_SCRAP","Caption","Scrap Pcs")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","PIECES_TOTAL","Caption","Tot Pcs")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","Runtime","Caption","Pcs/Hr")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","Capacity","Caption","Capacity")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","REM_PCS","Caption","Rem Pcs")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","REM_PCS","Caption","Rem Pcs")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","HOURS_WORKED","Caption","Hrs")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","AMT_STANDARD","Caption","Est Hrs")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","Perform","Caption","Perf")
+
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","EMPLOYEE","MinWidth","150")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","DEPT_EMP","MinWidth","40")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","SHIFT","MinWidth","40")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","CHARGE_DATE","MinWidth","70")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","MACHINE","MinWidth","35")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","DISPLAY_PART","MinWidth","105")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","PART_DESCRIPTION","MinWidth","180")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","OPCODE","MinWidth","50")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","JOB","MinWidth","50")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","SUFFIX","MinWidth","30")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","SEQ","MinWidth","45")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","DESCRIPTION","MinWidth","175")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","PIECES_COMPLTD","MinWidth","55")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","HOURS_WORKED","MinWidth","55")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","REM_PCS","MinWidth","55")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","PIECES_SCRAP","MinWidth","55")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","PIECES_TOTAL","MinWidth","55")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","Runtime","MinWidth","55")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","Capacity","MinWidth","55")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","Perform","MinWidth","55")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","AMT_STANDARD","MinWidth","55")
+
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","DEPT_EMP","HeaderHAlignment","Center")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","SHIFT","HeaderHAlignment","Center")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","CHARGE_DATE","HeaderHAlignment","Center")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","JOB","HeaderHAlignment","Center")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","SUFFIX","HeaderHAlignment","Center")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","SEQ","HeaderHAlignment","Center")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","MACHINE","HeaderHAlignment","Center")
+
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","DEPT_EMP","CellHAlignment","Center")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","SHIFT","CellHAlignment","Center")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","CHARGE_DATE","CellHAlignment","Center")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","JOB","CellHAlignment","Center")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","SUFFIX","CellHAlignment","Center")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","SEQ","CellHAlignment","Center")
+
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","AMT_STANDARD","DisplayCustomString","###,###,##0.00")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","HOURS_WORKED","DisplayCustomString","###,###,##0.00")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","Perform","DisplayCustomString","###,###,##0")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","PIECES_COMPLTD","DisplayCustomString","###,###,##0")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","PIECES_SCRAP","DisplayCustomString","###,###,##0")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","REM_PCS","DisplayCustomString","###,###,##0")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","TOTAL_REQ","DisplayCustomString","###,###,##0")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","PIECES_TOTAL","DisplayCustomString","###,###,##0.00")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","Runtime","DisplayCustomString","###,###,##0.00")
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","Capacity","DisplayCustomString","###,###,##0.00")
+
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","CHARGE_DATE","DisplayCustomDatetime","d")
+	
+	F.Intrinsic.Control.If(V.Global.bLongPart)
+		Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","DISPLAY_PART","MinWidth","250")
+	F.Intrinsic.Control.EndIf
+
+	'added code
+	
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","Job_Suf_Seq","Visible",False)
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","Sequence_Key","Visible",False)
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","Years","Visible",False)
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","MonthS","Visible",False)
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","DayS","Visible",False)
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","Notes","MinWidth","200")
+	
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","Notes","AllowEdit",False)
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","Notes","ReadOnly",True)
+	
+	Gui.frmPerF.GsGCInd.SetColumnProperty("gvInd","CHARGE_DATE","SortOrder","Ascending")
+	
+	Gui.frmPerF.GsGCInd.ResumeLayout()
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadGsGCInd.End
+
+Program.Sub.GsGCInd_CellValueChanged.Start
+Program.Sub.GsGCInd_CellValueChanged.End
+
+Program.Sub.GsGCInd_ColumnFilterChanged.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.bFilter.Declare	
+	V.Local.sFilter.Declare
+	V.Local.sInvalid.Declare
+	V.Local.bRet.Declare
+	V.Local.iCnt.Declare
+	V.Local.iCounter.Declare(Long,0)
+	V.Local.sMsg.Declare
+
+	F.Intrinsic.String.Split("StartsWith*!*Between*!*Contains*!*EndsWith*!*IsNullOrEmpty*!*?*!*IsOutlookInterval","*!*",V.Local.sInvalid)
+	F.Intrinsic.String.IsNullOrWhiteSpace(V.Args.ActiveFilterExpression,V.Local.bFilter)
+	Function.Intrinsic.Control.If(V.Local.bFilter,=,True)
+		F.Intrinsic.Control.CallSub(loadtotals,"Caller","dtInd","Filter","IND_FLAG = True")
+	Function.Intrinsic.Control.Else
+		F.Intrinsic.String.Replace(V.Args.ActiveFilterExpression,"[","",V.Local.sFilter)
+		F.Intrinsic.String.Replace(V.Local.sFilter,"]","",V.Local.sFilter)
+		F.Intrinsic.String.Build("{0} And IND_FLAG = True",V.Local.sFilter,V.Local.sFilter)
+
+		F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sInvalid.UBound,1)
+			F.Intrinsic.String.IsInString(V.Local.sFilter,V.Local.sInvalid(V.Local.iCnt),False,V.Local.bRet)
+			F.Intrinsic.Control.If(V.Local.bRet,=,True)
+				F.Intrinsic.Math.Add(V.Local.iCounter,1,V.Local.iCounter)
+			F.Intrinsic.Control.endif
+		F.Intrinsic.Control.Next(V.Local.iCnt)
+
+		F.Intrinsic.Control.If(V.Local.iCounter,=,1)
+			Function.Intrinsic.String.Build("Grid will be filtered, but totals will not be recalculated, because one of the filters entered is an invalid filter for recalculating totals.{0}{0}Invalid Filters for recalculating totals:{0}- Is between{0}- Is not between{0}- Contains{0}- Does not contain{0}- Beings with{0}- Ends with{0}- Is blank{0}- Is not blank{0}- ?{0}- Calendar Checkboxes",V.Ambient.NewLine,V.Local.sMsg)
+			Function.Intrinsic.UI.Msgbox(V.Local.sMsg,"Filter Validation")
+		F.Intrinsic.Control.ElseIf(V.Local.iCounter,>,1)
+			Function.Intrinsic.String.Build("Grid will be filtered, but totals will not be recalculated, because more than one filter entered is an invalid filter for recalculating totals.{0}{0}Invalid Filters for recalculating totals:{0}- Is between{0}- Is not between{0}- Contains{0}- Does not contain{0}- Beings with{0}- Ends with{0}- Is blank{0}- Is not blank{0}- ?{0}- Calendar Checkboxes",V.Ambient.NewLine,V.Local.sMsg)
+			Function.Intrinsic.UI.Msgbox(V.Local.sMsg,"Filter Validation")
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.CallSub(loadtotals,"Caller","dtInd","Filter",V.Local.sFilter)
+		F.Intrinsic.Control.EndIf
+	Function.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.GsGCInd_ColumnFilterChanged.End
+
+Program.Sub.LoadTotals.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.fTotal.Declare
+	V.Local.sTotal.Declare
+
+	F.Intrinsic.Control.SelectCase(V.Args.Caller)
+		F.Intrinsic.Control.Case("First")
+			F.Data.DataTable.Compute("dtPR","SUM(AMT_STANDARD)","IND_FLAG <> True",V.Local.fTotal)
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtEstHrs.Text(V.Local.sTotal)
+			F.Data.DataTable.Compute("dtPR","SUM(HOURS_WORKED)","IND_FLAG <> True",V.Local.fTotal)
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtTotHrs.Text(V.Local.sTotal)
+			F.Intrinsic.Control.If(V.Screen.frmPerf!txtTotHrs.Text,<>,0)
+				F.Intrinsic.Math.Div(V.Screen.frmPerf!txtEstHrs.Text,V.Screen.frmPerf!txtTotHrs.Text,V.Local.fTotal)
+				F.Intrinsic.Math.Mult(V.Local.fTotal,100,V.Local.fTotal)
+			F.Intrinsic.Control.Else
+				V.Local.fTotal.Set(0)
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtTotPerF.Text(V.Local.sTotal)
+
+			F.Data.DataTable.Compute("dtInd","SUM(AMT_STANDARD)","",V.Local.fTotal)
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtIndTotEst.Text(V.Local.sTotal)
+			F.Data.DataTable.Compute("dtInd","SUM(HOURS_WORKED)","",V.Local.fTotal)
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtIndTotHrs.Text(V.Local.sTotal)
+			F.Intrinsic.Control.If(V.Screen.frmPerf!txtIndTotHrs.Text,<>,0)
+				F.Intrinsic.Math.Div(V.Screen.frmPerf!txtIndTotEst.Text,V.Screen.frmPerf!txtIndTotHrs.Text,V.Local.fTotal)
+				F.Intrinsic.Math.Mult(V.Local.fTotal,100,V.Local.fTotal)
+			F.Intrinsic.Control.Else
+				V.Local.fTotal.Set(0)
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtIndTotPerF.Text(V.Local.sTotal)
+			
+			F.Data.DataTable.Compute("dtPR","SUM(PIECES_COMPLTD)","IND_FLAG <> True",V.Local.fTotal)
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtPcsGood.Text(V.Local.sTotal)
+			F.Data.DataTable.Compute("dtPR","SUM(PIECES_SCRAP)","IND_FLAG <> True",V.Local.fTotal)
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtPcsScrp.Text(V.Local.sTotal)
+			F.Data.DataTable.Compute("dtPR","SUM(PIECES_TOTAL)","IND_FLAG <> True",V.Local.fTotal)
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtTotPcs.Text(V.Local.sTotal)
+
+		F.Intrinsic.Control.Case("dtPR")
+			F.Data.DataTable.Compute("dtPR","SUM(AMT_STANDARD)",V.Args.Filter,V.Local.fTotal)
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtEstHrs.Text(V.Local.sTotal)
+			F.Data.DataTable.Compute("dtPR","SUM(HOURS_WORKED)",V.Args.Filter,V.Local.fTotal)
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtTotHrs.Text(V.Local.sTotal)
+			F.Intrinsic.Control.If(V.Screen.frmPerf!txtTotHrs.Text,<>,0)
+				F.Intrinsic.Math.Div(V.Screen.frmPerf!txtEstHrs.Text,V.Screen.frmPerf!txtTotHrs.Text,V.Local.fTotal)
+				F.Intrinsic.Math.Mult(V.Local.fTotal,100,V.Local.fTotal)
+			F.Intrinsic.Control.Else
+				V.Local.fTotal.Set(0)
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtTotPerF.Text(V.Local.sTotal)
+			
+			F.Data.DataTable.Compute("dtPR","SUM(PIECES_COMPLTD)",V.Args.Filter,V.Local.fTotal)
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtPcsGood.Text(V.Local.sTotal)
+			F.Data.DataTable.Compute("dtPR","SUM(PIECES_SCRAP)",V.Args.Filter,V.Local.fTotal)
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtPcsScrp.Text(V.Local.sTotal)
+			F.Data.DataTable.Compute("dtPR","SUM(PIECES_TOTAL)",V.Args.Filter,V.Local.fTotal)
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtTotPcs.Text(V.Local.sTotal)
+
+		F.Intrinsic.Control.Case("dtInd")
+			F.Data.DataTable.Compute("dtInd","SUM(AMT_STANDARD)",V.Args.Filter,V.Local.fTotal)
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtIndTotEst.Text(V.Local.sTotal)
+			F.Data.DataTable.Compute("dtInd","SUM(HOURS_WORKED)",V.Args.Filter,V.Local.fTotal)
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtIndTotHrs.Text(V.Local.sTotal)
+			F.Intrinsic.Control.If(V.Screen.frmPerf!txtIndTotHrs.Text,<>,0)
+				F.Intrinsic.Math.Div(V.Screen.frmPerf!txtIndTotEst.Text,V.Screen.frmPerf!txtIndTotHrs.Text,V.Local.fTotal)
+				F.Intrinsic.Math.Mult(V.Local.fTotal,100,V.Local.fTotal)
+			F.Intrinsic.Control.Else
+				V.Local.fTotal.Set(0)
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtIndTotPerF.Text(V.Local.sTotal)
+			
+			F.Data.DataTable.Compute("dtPR","SUM(PIECES_COMPLTD)",V.Args.Filter,V.Local.fTotal)
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtPcsGood.Text("0.00")
+			F.Data.DataTable.Compute("dtPR","SUM(PIECES_SCRAP)",V.Args.Filter,V.Local.fTotal)
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtPcsScrp.Text("0.00")
+			F.Data.DataTable.Compute("dtPR","SUM(PIECES_TOTAL)",V.Args.Filter,V.Local.fTotal)
+			F.Intrinsic.String.Format(V.Local.fTotal,"#,###,###,##0.00",V.Local.sTotal)
+			Gui.frmPerF.txtTotPcs.Text("0.00")
+	F.Intrinsic.Control.EndSelect
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadTotals.End
+
+Program.Sub.tabPerf_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Control.SelectCase(V.Screen.frmPerf!tabPerF.Tab)
+		F.Intrinsic.Control.Case(0)
+			Gui.frmPerF.txtEstHrs.Visible(True)
+			Gui.frmPerF.txtTotHrs.Visible(True)
+			Gui.frmPerF.txtTotPerF.Visible(True)
+			Gui.frmPerF.txtIndTotEst.Visible(False)
+			Gui.frmPerF.txtIndTotHrs.Visible(False)
+			Gui.frmPerF.txtIndTotPerF.Visible(False)
+			Gui.frmPerF.txtPcsIndGood.Visible(False)
+			Gui.frmPerF.txtPcsIndScrp.Visible(False)
+			Gui.frmPerF.txtTotIndPcs.Visible(False)
+			Gui.frmPerF.txtPcsGood.Visible(True)
+			Gui.frmPerF.txtPcsScrp.Visible(True)
+			Gui.frmPerF.txtTotPcs.Visible(True)
+
+		F.Intrinsic.Control.Case(1)
+			Gui.frmPerF.txtEstHrs.Visible(False)
+			Gui.frmPerF.txtTotHrs.Visible(False)
+			Gui.frmPerF.txtTotPerF.Visible(False)
+			Gui.frmPerF.txtIndTotEst.Visible(True)
+			Gui.frmPerF.txtIndTotHrs.Visible(True)
+			Gui.frmPerF.txtIndTotPerF.Visible(True)
+			Gui.frmPerF.txtPcsIndGood.Visible(True)
+			Gui.frmPerF.txtPcsIndScrp.Visible(True)
+			Gui.frmPerF.txtTotIndPcs.Visible(True)
+			Gui.frmPerF.txtPcsGood.Visible(False)
+			Gui.frmPerF.txtPcsScrp.Visible(False)
+			Gui.frmPerF.txtTotPcs.Visible(False)
+
+	F.Intrinsic.Control.EndSelect
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.tabPerf_Click.End
+
+Program.Sub.picGSSLogo_DblClick.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	Gui.frmWeb..Show
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.picGSSLogo_DblClick.End
+
+Program.Sub.frmWeb_UnLoad.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	Gui.frmWeb..Visible(False)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.frmWeb_UnLoad.End
+
+Program.Sub.cmdGSS_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Task.ShellExec(0,"Open","http://www.globalshopsolutions.com/","","",0)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdGSS_Click.End
+
+Program.Sub.cmdServ_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Task.ShellExec(0,"Open","http://gss-service.com/","","",0)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdServ_Click.End
+
+Program.Sub.cmdUpd_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Task.ShellExec(0,"Open","http://gss-updates.com/","","",0)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdUpd_Click.End
+
+Program.Sub.cmdResetGsGC_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.ODBC.Connection!common.OpenConnection(V.Ambient.Ccon,V.Ambient.Cuser,V.Ambient.Cpass)
+	F.ODBC.Connection!common.Execute("Delete From Gs_Registry Where Reg_ID = 6017 And Seq = 1000;")
+	F.ODBC.Connection!common.Close
+	
+	Gui.frmWeb..Visible(False)
+	V.Global.bLoadData.Set(False)
+	F.Intrinsic.Control.CallSub(cmdReFresh_Click)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdResetGsGC_Click.End
+
+Program.Sub.Serialize.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sSerialize.Declare
+	
+	'gvPR
+	Gui.frmPerF.GsGCPerF.Serialize("gvPR",V.Local.sSerialize)
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"GVPR",6017,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+	'gvInd
+	Gui.frmPerF.GsGCInd.Serialize("gvInd",V.Local.sSerialize)
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"GVIND",6017,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.EndTry
+Program.Sub.Serialize.End
+
+Program.Sub.Deserialize.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sSerialize.Declare
+	
+	'Delete old registry records
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"GVPR",6017,0,5,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize,<>,"")
+		F.ODBC.Connection!common.OpenConnection(V.Ambient.Ccon,V.Ambient.Cuser,V.Ambient.Cpass)
+		F.ODBC.Connection!common.Execute("Delete From Gs_Registry Where Reg_ID = 6017 And Seq < 1000;")
+		F.ODBC.Connection!common.Close
+	F.Intrinsic.Control.EndIf
+
+	'gvPR
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"GVPR",6017,1000,6,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize,<>,"")
+		Gui.frmPerF.GsGCPerF.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf
+	'gvInd
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"GVIND",6017,1000,6,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize,<>,"")
+		Gui.frmPerF.GsGCInd.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.EndTry
+Program.Sub.Deserialize.End
+
+Program.Sub.Comments.Start
+${$0$}$Employee Performance$}$JoeyT and AGV$}$1/13/2017 5:02:24 PM$}$False
+Program.Sub.Comments.End
